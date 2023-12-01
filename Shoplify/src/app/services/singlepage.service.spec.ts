@@ -32,7 +32,7 @@ describe('SinglepageService', () => {
       }
     ];
 
-    service.setCartItems(cartItems);
+    service.getCartItems();
     expect(service.getCartItems()).toEqual(cartItems);
   });
 
