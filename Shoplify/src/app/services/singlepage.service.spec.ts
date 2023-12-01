@@ -6,11 +6,66 @@ describe('SinglepageService', () => {
   let service: SinglepageService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [SinglepageService]
+    });
+
     service = TestBed.inject(SinglepageService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  //get cart items
+  it('should set and get cart items', () => {
+    const cartItems = [
+      {
+        "id": "1",
+        "name": "product1",
+        "price": 10,
+        "quantity": 1
+      }
+    ];
+
+    service.setCartItems(cartItems);
+    expect(service.getCartItems()).toEqual(cartItems);
+  });
+
+  //set cart items
+  it('should set cart items', () => {
+    const cartItems = [
+      {
+        "id": "1",
+        "name": "product1",
+        "price": 10,
+        "quantity": 1
+      }
+    ];
+
+    service.setCartItems(cartItems);
+    expect(service.getCartItems()).toEqual(cartItems);
+  });
+
+  //check if emails are matching
+  it('should check if emails are matching', () => {
+    const userEmail = "michealvenum007@gmail.com";
+    const cartItems = [
+      {
+        "id": "1",
+        "name": "product1",
+        "price": 10,
+        "quantity": 1,
+      },
+    ];
+
+    localStorage.getItem('user_email');
+    localStorage.getItem('cartItems');
+
+    expect(service.areEmailsMatching()).toEqual(true);
+
+  });
+
 });
