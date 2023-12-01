@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
 
 import { SinglepageService } from './singlepage.service';
 
