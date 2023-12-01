@@ -103,7 +103,7 @@ describe('AdminService', () => {
     service.softDeletedProducts().subscribe((res) => {
       expect(res).toEqual(products);
     });
-    const req = httpMock.expectOne('http://localhost:5400/product/getSoftDeletedProducts');
+    const req = httpMock.expectOne('http://localhost:5400/product/softDeletedProducts');
     expect(req.request.method).toBe('GET');
     req.flush(products);
 

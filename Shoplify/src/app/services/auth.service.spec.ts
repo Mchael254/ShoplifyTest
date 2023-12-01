@@ -51,7 +51,7 @@ describe('AuthService', () => {
       "password": "12345678"
     };
 
-    service.registerUser(userLogin).subscribe((res) => {
+    service.login(userLogin).subscribe((res) => {
       expect(res).toEqual(userLogin);
     });
 
@@ -65,11 +65,12 @@ describe('AuthService', () => {
   //reset password
   it('should reset password', () => {
     const passwordDetails = {
-      "password": "12345678",
-      "confirmPassword": "12345678"
+      "email": "michealvenum007@gmail.com",
+      "newPassword": "12345678",
+      "token": "1234567"
     };
 
-    service.registerUser(passwordDetails).subscribe((res) => {
+    service.resetPassword(passwordDetails).subscribe((res) => {
       expect(res).toEqual(passwordDetails);
     });
 

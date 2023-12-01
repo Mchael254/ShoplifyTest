@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 
 import { SinglepageService } from './singlepage.service';
 
@@ -63,10 +63,10 @@ describe('SinglepageService', () => {
       },
     ];
 
-    localStorage.getItem('user_email');
-    localStorage.getItem('cartItems');
+    localStorage.setItem('user_email', userEmail);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-    expect(service.areEmailsMatching()).toEqual(true);
+    expect(service.areEmailsMatching()).toEqual(false);
 
   });
 
