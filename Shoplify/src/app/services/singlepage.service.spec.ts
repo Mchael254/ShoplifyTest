@@ -5,6 +5,7 @@ import { SinglepageService } from './singlepage.service';
 
 describe('SinglepageService', () => {
   let service: SinglepageService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

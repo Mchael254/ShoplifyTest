@@ -5,6 +5,7 @@ import { CheckoutService } from './checkout.service';
 
 describe('CheckoutService', () => {
   let service: CheckoutService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

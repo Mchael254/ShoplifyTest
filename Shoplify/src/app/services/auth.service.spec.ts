@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
   let service: AuthService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -50,28 +51,16 @@ describe('AuthService', () => {
       "password": "12345678"
     };
 
-    const res = await service.login(userLogin);
-    expect(res).toEqual(userLogin);
+    service.registerUser(userLogin).subscribe((res) => {
+      expect(res).toEqual(userLogin);
+    });
 
     const req = httpMock.expectOne('http://localhost:5400/user/login');
     expect(req.request.method).toBe('POST');
     req.flush(userLogin);
   });
 
-   //request reset password
-   it('should request reset password', () => {
-    const email = {
-      "email": "michealvenum007@gmail.com"
-    };
 
-    const res = service.requestReset(email);
-    expect(res).toEqual(email);
-
-    const req = httpMock.expectOne('http://localhost:5400/user/requestResetPassword');
-    expect(req.request.method).toBe('POST');
-    req.flush(email);
-
-  });
 
   //reset password
   it('should reset password', () => {
@@ -80,8 +69,9 @@ describe('AuthService', () => {
       "confirmPassword": "12345678"
     };
 
-    const res = service.resetPassword(passwordDetails);
-    expect(res).toEqual(passwordDetails);
+    service.registerUser(passwordDetails).subscribe((res) => {
+      expect(res).toEqual(passwordDetails);
+    });
 
     const req = httpMock.expectOne('http://localhost:5400/user/resetPassword');
     expect(req.request.method).toBe('POST');

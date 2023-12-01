@@ -35,5 +35,5 @@
   ],
   "exclude":[ //to exclude cypress 
     "cypress.config.ts"
-  ] 
+  ]
 }

@@ -5,6 +5,7 @@ import { AdminService } from './admin.service';
 
 describe('AdminService', () => {
   let service: AdminService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -99,7 +100,7 @@ describe('AdminService', () => {
       }
     ];
 
-    service.fetchSoftDeletedProducts().subscribe((res) => {
+    service.softDeletedProducts().subscribe((res) => {
       expect(res).toEqual(products);
     });
     const req = httpMock.expectOne('http://localhost:5400/product/getSoftDeletedProducts');
