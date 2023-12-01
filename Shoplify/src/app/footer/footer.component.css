@@ -1,0 +1,42 @@
+/* contact */
+.contact{
+  margin-top: 5px;
+  /* border: solid yellow 2px; */
+  height: 200px;
+  width: 95vw;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  background-color: black;
+
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  padding: 20pxrem;
+}
+.information h4{
+  color: white;
+  font-size: larger;
+}
+.information ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  color: white;
+
+}
+
+.information ul li {
+  color: white;
+}
+
+.information ion-icon {
+  color: red ;
+  font-size: 20px;
+}
+

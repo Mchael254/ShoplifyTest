@@ -1,0 +1,95 @@
+<app-navigation></app-navigation>
+<div class="nav">
+  <div class="home">
+
+    <div class="music">
+      <h3>Shoplify</h3>
+    </div>
+    <div class="accountDropdown">
+      <div class="filter">
+        <select id="category"  (change)="onCategoryChange($event)">
+          <option value="">Categories</option>
+          <option value="Bikes">Bikes</option>
+          <option value="Spare Parts">Spare Parts</option>
+          <option value="Fashion">Fashion</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="search-container" style="border: solid 1px #d9d9d9;border-radius: 5px;">
+      <input type="text" placeholder="Search Product" value="search"
+        style="border: solid 1px #af3232; height: 30px; width: 600px; text-align: center; font-size: large; border: 0px solid;"
+        [(ngModel)]="searchTearm" (input)="filterProducts()" /><span class="material-symbols-outlined">
+        search
+      </span>
+
+    </div>
+
+  </div>
+  <div class="account">
+    <ul>
+      <div class="marquees">
+        <marquee>!!! HURRY, BLACK FRIDAY SALES</marquee>
+      </div>
+      <li class="accountDropdown">
+        <!-- <a href="">Help</a> -->
+        <div class="dropdown-content">
+          <a href="/views/signin.html">Product</a>
+          <a href="/views/signup.html">Account</a>
+        </div>
+      </li>
+      <div class="cart">
+        <a routerLink="/checkout" class="carts">
+          <li>
+            <span class="material-symbols-outlined">
+              shopping_cart
+              <sup class="counter">{{ cartItemCount }}</sup>
+            </span>
+          </li>
+          <li>Cart</li>
+        </a>
+      </div>
+
+    </ul>
+
+  </div>
+</div>
+
+
+<div class="products">
+  <div *ngIf="filteredProducts.length > 0" class="card-container">
+
+    <ng-container *ngFor="let category of getUniqueCategories()" class="category-container">
+      <div class="category">
+        <div class="manage">
+          <h2>{{ category }}</h2>
+          <div class="inner">
+            
+            <ng-container *ngFor="let product of filteredProducts">
+              <div class="cards" (click)="productClick(product)" *ngIf="product.productCategory === category">
+                <h3>{{ product.productName }}</h3>
+                <img [src]="product.productImage" alt="{{ product.productName }}">
+                <p style="font-weight: bold; font-size: medium;">Ksh {{ product.productPrice}}</p>
+                <p style="font-weight: bold; font-size: medium;">{{ product.productDescription}}..</p>
+
+              </div>
+            </ng-container>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </ng-container>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<app-footer></app-footer>

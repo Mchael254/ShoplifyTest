@@ -1,0 +1,54 @@
+ 
+ 
+ 
+### make order
+POST http://localhost:5400/order/makeOrder
+Content-Type: application/json
+
+{
+    "orderDate": "2021-05-06",
+    "email": "eucs@gmail.com",
+    "totalAmount": 1000,
+    "items": [
+        {
+            "productID": "1f4f8c68-623c-46d1-94ec-10809f673935",
+            "quantity": 2,
+            "productPrice": 4000,
+            "productName": "test",
+            "productDescription": "adventures book",
+            "productImage": "https://m.media-amazon.com/images/I/71HOVTfoB4L._AC_UL320_.jpg"
+        },
+        {
+            "productID": "6f2ae277-ba84-4e7a-90e1-5c6f206433ae",
+            "quantity": 1,
+            "productPrice": 4000,
+            "productName": "Dress",
+            "productDescription": "adventures book",
+            "productImage": "https://m.media-amazon.com/images/I/71DMD+kUQFL._AC_UL320_.jpg"
+        }
+    ]
+}
+
+
+
+### Get All Orders
+GET http://localhost:5400/order/
+
+### get orders with items
+GET http://localhost:5400/order/getOrders
+
+
+### delete order 
+DELETE http://localhost:5400/order/deleteOrder
+Content-Type: application/json
+
+{
+    "orderID": "83b7ac10-7840-4edd-bb36-152f6c291399"
+
+}
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,115 @@
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  height: 70px;
+  background-color:black;
+  color: #fff;
+   /* position: fixed; */
+
+}
+.nav a{
+  text-decoration: none;
+  color: #fff;
+  margin: 0px 15px;
+
+}
+/* date */
+.dashboard .nav .date{
+  font-size: 1.3rem;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.dropbtn {
+  background-color: rgb(72, 114, 179);
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+
+.logo{
+  background-color: white;
+  height:40px;
+  width: 500px;
+  color:rgb(72, 114, 179) ;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo p{
+  font-weight: bold;
+}
+
+/* about */
+.about{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+}
+.about a{
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s ease-in-out;
+  font-weight: bold;
+
+}
+.about a:hover{
+  background-color: #fff;
+  color: black;
+  border-radius: 25px;
+  padding: 10px;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+/* user profile */
+.accountIcon a{
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s ease-in-out;
+  font-weight: bold;
+
+}
+.accountIcon a:hover{
+  background-color: #fff;
+  color: black;
+  border-radius: 25px;
+  padding: 10px;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+
+}

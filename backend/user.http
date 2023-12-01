@@ -1,0 +1,130 @@
+
+
+post http://localhost:5400/user/register
+Content-Type: application/json
+
+{
+    "userName":"Eucs Angulars",
+    "email":"eucs@gmail.com",
+    "password":"Mike1234567",
+    "phone_no":"0708139390"
+}
+
+
+###
+#login user
+POST http://localhost:5400/user/login
+Content-Type: application/json
+
+{
+    "email":"eucs@gmail.com",
+    "password":"379326"
+
+}
+
+
+### sendReview
+
+POST http://localhost:4300/user/sendReview
+Content-Type: application/json
+
+{   
+    "email":"kevin@gmail.com",
+    "review": "truly amazing"
+  
+}
+
+### get all reviews
+GET http://localhost:4300/user/allReviews
+Content-Type: application/json
+
+###book ticket
+
+post http://localhost:4300/tour/bookTicket
+Content-Type: application/json
+
+{
+   " tourName":"mombasa",
+    "tourPrice":"4000",
+    "userEmail":"kevin@gmail.com",
+    "startDate":"2023-11-01",
+    "endDate":"2023-11-10",
+    "tourHost":"major",
+    "tourLocation":"mombasa",
+    "tourDuration":"5 days",
+   " tourCategory":"Cultural",
+    "tourContact":"0703142445",
+    "pickupLocation":"nairobi",
+    "pickupTime":"08:00 AM",
+    "dropoffLocation":"nairobi",
+   " dropoffTime":"10:00 AM"
+}
+
+
+### Get All Bookings
+GET http://localhost:4300/tour/allBookings
+
+
+### update user profile
+
+put http://localhost:4300/user/updateProfile
+Content-Type: application/json
+
+{
+    
+    "userName":"Eucybaby",
+    "email":"eucs@gmail.com",
+    "phone_no":"0724433781",
+    "password":"0703142446"
+}
+
+### fetch user details
+get http://localhost:4300/user/userDetails
+Content-Type: application/json
+
+{
+   
+    "email":"james@gmail.com"
+   
+}
+
+###check 
+post http://localhost:4300/user/checkUserEmail
+Content-Type: application/json
+
+{
+   
+    "email":"pamela@gmail.com"
+   
+}
+
+
+### update password
+
+post http://localhost:4300/user/resetPassword
+Content-Type: application/json
+
+{
+    
+    "email":"cylvonnen@gmail.com",
+    "newPassword":"Mike12345678",
+    "token":"g5xj8ju6zjmvla8f9rv3y"
+   
+}
+
+
+### get all users
+
+get http://localhost:4300/user/allUsers
+
+
+### delete user
+delete http://localhost:4300/user/deleteUser
+Content-Type: application/json
+
+{
+    
+    "email":"cylvonnen@gmail.com"
+
+}
+

@@ -1,0 +1,95 @@
+<app-navigation ></app-navigation>
+<div class="buy">
+
+  <div class="account">
+    <div class="productss">
+      <h3>Shoplify </h3>
+    </div>
+
+    <div class="marquees">
+      <marquee>!!! HURRY, GREAT DISCOUNTS AVAILABLE</marquee>
+    </div>
+    <div class="accountDropdown">
+      <!-- <a href="">Help</a> -->
+      <div class="dropdown-content">
+        <a href="/views/signin.html">Product</a>
+        <a href="/views/signup.html">Account</a>
+      </div>
+    </div>
+    <div class="orderss">
+      <a routerLink="/orders" class="order">
+        <li>
+          <span class="material-symbols-outlined">
+            shopping_bag
+          </span>
+        </li>
+        <li>Orders</li>
+      </a>
+    </div>
+    <div class="cart">
+      <a routerLink="/checkout" class="carts">
+        <li>
+          <span class="material-symbols-outlined">
+            shopping_cart
+            <sup class="counter">{{ cartItemCount }}</sup>
+          </span>
+        </li>
+        <li>Cart</li>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="mainContainer">
+  <div *ngIf="container" class="container">
+    <div class="productContainer">
+      <div *ngFor="let item of existingCartItems" class="itemCard">
+        <div class="images">
+          <img src="{{ item.productImage }}" alt="">
+          <p>{{ item.productName }}</p>
+        </div>
+        <div class="details">
+          <p>{{ item.productPrice }}</p>
+          <button (click)="reduce(item)">-</button>
+          <span style="font-weight: bold;font-size: medium;">{{ item.quantity }}</span>
+          <span><button (click)="add(item)"> +</button></span>
+          <button (click)="remove(item)">remove<span class="material-symbols-outlined">delete </span></button>
+          <div class="orderContainer">
+            <div *ngIf="showAcceptanceForm" class="modal-overlay">
+              <div class="updateContainer">
+                <button (click)="continue(item)" class="yes">Remove form Cart</button>
+                <button (click)="decline()">Dont remove </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div *ngIf="summary" class="summary">
+      <h2 style="border-bottom: solid gray 1px;">Cart Summary </h2>
+      <h3>{{totalAmount}}</h3>
+      <button (click)="makeOrder()">Checkout</button>
+    </div>
+  </div>
+
+  <div *ngIf="orderMade" class="modal-overlay">
+    <div class="updateContainer">
+      <p>Order made successfully</p>
+    </div>
+  </div>
+
+  <div *ngIf="emptyCart" class="empty">
+    <div class="emptyMessage">
+      <h1>Your Cart is Empty</h1>
+
+    </div>
+    <a routerLink="/landing">Start Shopping</a>
+  </div>
+
+</div>
+
+
+<!-- <app-footer></app-footer> -->

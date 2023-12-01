@@ -1,0 +1,91 @@
+<app-navigation></app-navigation>
+<div class="buy">
+
+  <div class="account">
+    <div class="productss">
+      <h3>Shoplify </h3>
+    </div>
+
+    <div class="marquees">
+      <marquee>!!! HURRY, GREAT DISCOUNTS AVAILABLE</marquee>
+    </div>
+    <div class="accountDropdown">
+      <!-- <a href="">Help</a> -->
+      <div class="dropdown-content">
+        <a href="/views/signin.html">Product</a>
+        <a href="/views/signup.html">Account</a>
+      </div>
+    </div>
+    <div class="cart">
+      <a routerLink="/checkout" class="carts">
+        <li>
+          <span class="material-symbols-outlined">
+            shopping_cart
+            <sup class="counter">{{ cartItemCount }}</sup>
+          </span>
+        </li>
+        <li>Cart</li>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+<h1 style="text-align: center; border-bottom: solid 1px #ddd;">{{ selectedProduct.productName }}</h1>
+<div class="mainContainer">
+  <div class="container">
+    <div class="details">
+
+      <div class="main">
+        <div class="category" style="display: flex;justify-content: center;align-items: center;">
+          <div>
+            <img src="{{selectedProduct.productImage}}" alt="product image" />
+          </div>
+
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="category">
+          <p> <strong>Name:</strong> {{ selectedProduct.productName }}</p>
+          <p><strong>Price:</strong> Ksh {{ selectedProduct.productPrice }}</p>
+          <!-- your-component.component.html -->
+          <p><strong>Quantity:</strong>{{ (selectedProduct.Quantity - cartItemCount) > 0 ? (selectedProduct.Quantity - cartItemCount) : 0 }}</p>
+
+          <!-- <p><strong>Qunatity:</strong>{{ selectedProduct.Quantity }}</p> -->
+          <button *ngIf="cartVanish" (click)="orderProduct()">Add to Cart</button>
+          <button *ngIf="outOfStock">Out of stock</button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="category">
+          <h2>Product Details </h2>
+          <div>
+            <p> <strong>Description:</strong> {{ selectedProduct.productDescription }}</p>
+            <p><strong>Supplier Contact:</strong> {{ selectedProduct.supplierContact }}</p>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="bookContainer">
+        <div *ngIf="successForm" class="modal-overlay">
+          <div class="updatecontainer">
+            <p style="font-size:20px;font-weight: bold;">{{productError}}!</p>
+          </div>
+        </div>
+
+
+        <p>{{errorResponse}}</p>
+
+      </div>
+      <!-- <div class="logo" [style.backgroundImage]="'url(' + recommendedImagePath + ')'" style="background-size: contain"> -->
+    </div>
+  </div>
+
+  <div class="other">
+
+  </div>
+</div>

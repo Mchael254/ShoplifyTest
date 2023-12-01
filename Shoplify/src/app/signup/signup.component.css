@@ -1,0 +1,105 @@
+
+.container {
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+.walle{
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30vw;
+  height:82%;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  border: solid #fafafa 2px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 10px;
+  text-align: center;
+}
+#signupcontainer{
+  display: flex;
+  justify-content: center;
+  background-color:white;
+  width: 30vw;
+  height: 88%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  border:solid 1px #D9D9D9 ;
+  /* border: solid green 2px; */
+}
+
+.formcontainer{
+  width: 60%;
+  padding: 1rem;
+}
+.formcontainer form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#signupcontainer .formcontainer form label{
+  font-size: 20px;
+}
+#signupcontainer #email-error,
+#signupcontainer #password-error{
+  color: red;
+}
+#signupcontainer .formcontainer form input{
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  outline: none;
+  /* border:  solid gray 0.001px;  */
+  border: solid 1px;
+  border-color: #D9D9D9;
+  height: 30px;
+  font-size: medium;
+
+}
+#signupcontainer .formcontainer form input:focus{
+  border-color:#f8982d;
+}
+
+#signupcontainer .formcontainer form button{
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  border-color: #D9D9D9;
+  background-color: #f8982d;
+  background-color: #f8982d;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.4s ease-in-out;
+  border: solid 1px;
+  border-color: #D9D9D9;
+  cursor: pointer;
+}
+
+#signupcontainer .formcontainer form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  color:white ;
+  background-color:black;
+}
+#signupcontainer .formcontainer a{
+  /* text-decoration: none; */
+  text-transform: capitalize;
+  margin-top: 10px;
+  color:rgb(72, 114, 179);
+}
+#response{
+  color: red;
+  text-align: center;
+}

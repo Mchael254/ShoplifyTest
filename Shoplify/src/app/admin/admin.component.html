@@ -1,0 +1,183 @@
+<app-navigation [showOrders]="false"></app-navigation>
+
+
+<div class="page-container">
+  <div class="company-logo">
+
+    <p style="font-size: 50px;">Manager</p>
+    <div class="manager">
+      <button class="profile" (click)="Clients()">Restricted</button>
+      <button class="profile" (click)="product()">Products</button>
+    </div>
+
+    <div class="buttonss">
+      <button class="side" (click)="addProduct()">Add Product</button>
+      <button class="side" (click)="inStock()">inStock</button>
+      <button class="side" (click)="outOfStock()">outOfStock</button>
+    </div>
+  </div>
+
+  <div *ngIf="productDashboard" class="product-dashboard">
+    <!-- product cards -->
+    <div class="buttonsss">
+      <p class="top">All Products<br /><span style="color: #9E9E9E">{{ productCount }}</span></p>
+      <p class="top">Out of Stock <br /><span style="color: red">{{ outOfStockCount }}</span></p>
+      <p class="top">In stock<br /><span style="color:green">{{ inStockCount }}</span></p>
+      <p class="top">
+        <span>
+          <input type="text" placeholder="Search Product"
+            style="border: solid 1px #a09e9e; height: 50px; width: 300px; text-align: center; font-size: large; border: 0px solid;"
+            [(ngModel)]="searchTearm" (input)="filterProducts()" />
+        </span>
+      </p>
+    </div>
+
+    <div *ngIf="filteredProducts | search: searchTearm" class="card-container">
+      <div *ngFor="let product of filteredProducts" class="cards" (click)="productDetails(product)">
+        <h4>{{ product.productName }}</h4>
+        <img src="{{product.productImage}}">
+        <p>
+          <span style="font-weight: bold;">Quantity: </span>{{ product.Quantity }}
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- soft deleted product -->
+  <div *ngIf="dashboard" class="client-container">
+
+    <div *ngIf=" deletedProduct" class="clientCard">
+      <div *ngFor="let deletedProduct of deletedProducts" class="cardss">
+        <h4 style="color: black;">{{ deletedProduct.productName }}</h4>
+        <img src="{{deletedProduct.productImage}}">
+        <p style="font-size: medium;"><span style="font-weight: bold;">Ksh: </span>{{
+          deletedProduct.productPrice }}</p>
+          <p style="display: none;">{{deletedProduct.productID}}</p>
+          <button class="deletes" (click)="restoreProduct(deletedProduct.productID)">restore</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- create product form -->
+  <div *ngIf="showProductForm" class="product-form-container product-form-transition">
+    <div class="product-form product-form-transition">
+      <form id="product-form" (ngSubmit)="submitProductForm()">
+        <p style="margin: 10px; color: black;font-size: 20px;">{{ successAssign }}</p>
+        <p style="margin: 10px; color: black">{{ updateResponse }}</p>
+        <p [style.color]="isWhichError ? 'black' : 'red'">{{ errorResponse }}</p>
+
+        <!-- Product Info -->
+        <p style="font-size: medium; font-weight: bold">Product Highlights</p>
+        <div class="productInfo">
+          <div class="form-group">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" placeholder="Product Name" name="productName"
+              [(ngModel)]="productForm.productName" required />
+          </div>
+          <div class="form-group">
+            <label for="productImage">Product Image</label>
+            <input type="text" id="productImage" placeholder="Product Image URL" name="productImage"
+              [(ngModel)]="productForm.productImage" required />
+          </div>
+          <div class="form-group">
+            <label for="productCategory">Product Category:</label>
+            <select id="productCategory" name="productCategory" [(ngModel)]="productForm.productCategory" required>
+              <option value="" disabled>Product category</option>
+              <option value="Bikes">Bikes</option>
+              <option value="Spare Parts">Spare Parts </option>
+              <option value="Fashion Wear">Fashion Wear</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="productPrice">Product Price:</label>
+            <input type="number" id="productPrice" placeholder="Product Price" name="productPrice"
+              [(ngModel)]="productForm.productPrice" required />
+          </div>
+          <div class="form-group">
+            <label for="Quantity">Quantity:</label>
+            <input type="number" id="Slots" placeholder="Quantity available" name="Quantity"
+              [(ngModel)]="productForm.Quantity" required />
+          </div>
+          <div class="form-group">
+            <label for="productContact">Supplier Contact:</label>
+            <input type="text" id="supplierContact" placeholder="Supplier Contact" name="supplierContact"
+              [(ngModel)]="productForm.supplierContact" required />
+          </div>
+          <div class="form-group">
+            <label for="productDescription">Product Description:</label>
+            <textarea id="productDescription" placeholder="Product Description" name="productDescription"
+              [(ngModel)]="productForm.productDescription" required></textarea>
+          </div>
+        </div>
+
+        <p style="margin: 10px; color: black">{{ updateResponse }}</p>
+        <p [style.color]="isWhichError ? 'black' : 'red'">{{ errorResponse }}</p>
+        <button (click)="closeProduct()" class="close">Close</button>
+        <button type="submit" class="formSubmit">Create Product</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- update form -->
+  <div *ngIf="showUpdateForm" class="product-form-container product-form-transition">
+    <div class="product-form product-form-transition">
+      <form id="product-form" (ngSubmit)="updateProductForm()">
+        <p style="margin: 10px; color: red">{{ updateResponse }}</p>
+        <p style="margin: 10px; color: black;font-size: 30px;">{{ successResponse }}</p>
+        <!-- product Info -->
+        <p style="font-size: medium; font-weight: bold">product Highlights</p>
+        <div class="productInfo">
+          <div class="form-group">
+            <label for="productName">product Name:</label>
+            <input type="text" id="productName" placeholder="product Name" name="productName"
+              [(ngModel)]="productForm.productName" required />
+          </div>
+          <div class="form-group">
+            <label for="productImage">product Image</label>
+            <input type="text" id="productImage" placeholder="product Image URL" name="productImage"
+              [(ngModel)]="productForm.productImage" required>
+          </div>
+          <div class="form-group">
+            <label for="productCategory">product Category:</label>
+            <select id="productCategory" name="productCategory" [(ngModel)]="productForm.productCategory" required>
+              <option value="" disabled>Product category</option>
+              <option value="Bikes">Bikes</option>
+              <option value="Spare Parts">Spare Parts</option>
+              <option value="Fashion Wear">Fashion Wear</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="productPrice">Product Price:</label>
+            <input type="number" id="productPrice" placeholder="Product Price" name="productPrice"
+              [(ngModel)]="productForm.productPrice" required />
+          </div>
+          <div class="form-group">
+            <label for="Slots">Quantity:</label>
+            <input type="number" id="Slots" placeholder="Slots" name="Slots" [(ngModel)]="productForm.Quantity"
+              required />
+          </div>
+          <div class="form-group">
+            <label for="productContact">product Contact:</label>
+            <input type="text" id="supplierContact" placeholder="Supplier Contact" name="supplierContact"
+              [(ngModel)]="productForm.supplierContact" required />
+          </div>
+          <div class="form-group">
+            <label for="productDescription">product Description:</label>
+            <textarea id="productDescription" placeholder="product Description" name="productDescription"
+              [(ngModel)]="productForm.productDescription" required></textarea>
+          </div>
+          <input type="hidden" id="productID" name="productID" [(ngModel)]="productID" />
+        </div>
+
+        <button (click)="closeUpdate()" class="close">Close</button>
+        <button type="submit" class="formSubmit">Update Product</button>
+        <button class="softDelete" (click)="deleteProduct()">Delete</button>
+
+      </form>
+    </div>
+  </div>
+
+</div>

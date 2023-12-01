@@ -1,0 +1,25 @@
+<app-navigation [signup]="true" [signin]="false" [showOrders]="false"> </app-navigation>
+<div class="company">
+    WELCOME TO SHOPLIFY
+<div class="container">
+
+    <div id="logincontainer">
+
+        <h2>Sign in</h2>
+        <div class="formcontainer">
+            <form (ngSubmit)="onSubmit()">
+                <p *ngIf="loginError"  id="response">{{ loginError }}</p>
+                <!-- <p id="response" style="color: blue;">{{ loginSuccess }}</p> -->
+                <label>Email address<span></span></label>
+                <input type="email" placeholder="example@gmail.com" [(ngModel)]="email" name="email">
+                <label>Password</label>
+                <input type="password" placeholder="password" [(ngModel)]="password" name="password">
+                <button type="submit">Continue >>></button>
+                <a routerLink="/passwordReset">Forgot Password?</a>
+                <a routerLink="/signup" style="margin-top: 30px;">Are you new?</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+

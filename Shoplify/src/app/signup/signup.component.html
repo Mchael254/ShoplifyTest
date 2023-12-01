@@ -1,0 +1,25 @@
+<app-navigation [signin]="true" [showOrders]="false"></app-navigation>
+<div class="container" [style.backgroundImage]="'url(' + ImagePath + ')'" style="background-size: cover;">
+    <!-- <img class="walle" [src]="ImagePath" alt="Image Alt Text"> -->
+    <div id="signupcontainer" >
+        <div class="formcontainer">
+            <h2>Sign up</h2>
+            <form id="signup-form" (ngSubmit)="onSubmit()">
+                <p id="response">{{ registerError }}</p>
+                <label>User Name<span></span></label>
+                <input type="text" placeholder="username" [(ngModel)]="userName" name="userName">
+                <label>Email address<span></span></label>
+                <input type="email" placeholder="example@gmail.com" [(ngModel)]="email" name="email">
+                <label>Phone_no<span></span></label>
+                <input type="text" placeholder="phone number" [(ngModel)]="phone_no" name="phone_no">
+                <label>Password</label>
+                <input type="password" [(ngModel)]="password" name="password">
+                <label>Confirm Password</label>
+                <input type="password" [(ngModel)]="confirm_password" name="confirm_password">
+                <button type="submit">signup  >>></button>
+                <a routerLink="/signin">Already have an account?</a>
+            </form>
+        </div>
+    </div>
+</div>
+

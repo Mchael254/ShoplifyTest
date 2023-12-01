@@ -1,0 +1,51 @@
+<app-navigation [signup]="false" [showOrders]="false"> </app-navigation>
+
+<div class="mainContainer">
+  <div class="brand">
+
+    <div class="profile">
+      <span style="font-size: 150px;border-radius: 50%;" class="material-symbols-outlined">
+        account_circle
+      </span>
+      <h2>{{ name }}</h2>
+    </div>
+    <h1>Welcome to Shoplify</h1>
+    <div class="image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9l117zBig3GSkrQp3UxAngIrNYqhDHxenLg&usqp=CAU" alt="Avatar" class="avatar">
+    </div>
+
+
+  </div>
+  <div class="orders">
+
+    <div *ngFor="let item of items" class="item">
+      <img src="{{ item.productImage }}" alt="Avatar">
+
+      <div class="arrange">
+        <p>Date</p>
+        <p>{{ item.orderDate | date:'mediumDate' }}</p>
+      </div>
+      <div class="arrange">
+        <p>Price</p>
+        <p>Ksh {{ item.productPrice }}</p>
+      </div>
+      <div class="arrange">
+        <p>Name</p>
+        <p>{{ item.productName }}</p>
+      </div>
+      <!-- <div class="arrange"> -->
+        <!-- <p>Description</p> -->
+        <!-- <p>{{ item.productDescription }}</p> -->
+      <!-- </div> -->
+
+
+
+
+
+  </div>
+
+
+
+  </div>
+
+</div>

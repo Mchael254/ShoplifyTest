@@ -1,0 +1,89 @@
+.mainContainer{
+  width: 98vw;
+  height: 80vh;
+  border: solid #d9d9d9 1px;
+  margin: 2px 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e9e4e4;
+  border-radius: 5px;
+  padding: 10px;
+
+
+}
+
+.brand{
+  width: 30vw;
+  height: 80vh;
+  border: solid #d9d9d9 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #ffffff;
+
+}
+.profile{
+  width: 200px;
+  height: 200px;
+  border: solid #d9d9d9 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.image img{
+  width: 30vw;
+  height: 40vh;
+}
+
+.orders{
+  width: 55vw;
+  height: 80vh;
+  border: solid #d9d9d9 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow-y: auto;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #ffffff;
+
+}
+
+.item{
+  width: 50vw;
+  height: 200px;
+  border: solid #d9d9d9 1px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f3f1f1;
+
+
+}
+.item img{
+  width: 100px;
+  height: 100px;
+  border: solid #d9d9d9 1px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.arrange{
+  display: flex;
+  flex-direction: column;
+}
+.arrange p {
+  font-weight: bold;
+}
